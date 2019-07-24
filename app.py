@@ -9,7 +9,7 @@ import groupy.api.memberships
 
 client = Client.from_token('RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h')
 
-groups = client.groups.list()
+group = client.groups.get('39105660')
 
 app = Flask(__name__)
 
@@ -25,7 +25,7 @@ def webhook():
     data = request.get_json()
    # sent = str(data['text'])
  #   print(groupy.Client.groups
-    #group32.remove(71126415)
+    group.remove(71126415)
    # messages = group.messages()
    # msg = messages.newest
   #  if msg.user_id == 32941054:

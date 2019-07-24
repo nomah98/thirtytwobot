@@ -3,8 +3,10 @@
 from flask import Flask, request
 import groupy
 from groupy import Client
+import groupy.api
 
-client = Client.from_token('RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h')
+token = 'RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h'
+group = Client.from_token(token).groups.get('39105660')
 
 
 app = Flask(__name__)
@@ -19,8 +21,10 @@ def index():
 @app.route('/', methods=['POST'])
 def webhook():
     data = request.get_json()
-    sent = str(data['text'])
-    print(groupy.Group.list())
+   # sent = str(data['text'])
+ #   print(groupy.Client.groups
+    for i in group.members:
+        print(i)
     return data['user_id']
 
 

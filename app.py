@@ -27,6 +27,7 @@ def webhook():
  #   print(groupy.Client.groups
     for mems in group.members:
         print(mems)
+        return mems
    # messages = group.messages()
    # msg = messages.newest
   #  if msg.user_id == 32941054:

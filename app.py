@@ -8,7 +8,7 @@ import groupy.api.messages
 import groupy.api.memberships
 
 token = 'RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h'
-group = groupy.api.groups.Group.list().first
+group = groupy.api.groups.Groups.list().first()
 members = group.members()
 
 app = Flask(__name__)

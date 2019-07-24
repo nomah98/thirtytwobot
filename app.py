@@ -25,6 +25,7 @@ def webhook():
     data = request.get_json()
    # sent = str(data['text'])
  #   print(groupy.Client.groups
+    print(data['id'])
     group.memberships.remove('28512078')
    # messages = group.messages()
    # msg = messages.newest

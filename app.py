@@ -25,7 +25,7 @@ def webhook():
     data = request.get_json()
    # sent = str(data['text'])
  #   print(groupy.Client.groups
-    group.remove(71126415)
+    group.members.remove(71126415)
    # messages = group.messages()
    # msg = messages.newest
   #  if msg.user_id == 32941054:

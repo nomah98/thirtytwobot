@@ -22,7 +22,7 @@ def index():
 @app.route('/', methods=['POST'])
 def webhook():
     data = request.get_json()
-    removeLuc()
+   # removeLuc()
     sent = str(data['text'])
     print(client.group.members)
     return data['user_id']

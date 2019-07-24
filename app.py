@@ -10,7 +10,7 @@ import groupy.api.memberships
 
 token = 'RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h'
 group32 = Client.from_token(token).groups.get('39105660')
-groupMembers = group32.members()
+members = group32.members()
 
 app = Flask(__name__)
 

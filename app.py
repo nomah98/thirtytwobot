@@ -27,7 +27,7 @@ def webhook():
     print(client.group.members)
     return data['user_id']
 
-def removeLuc(data):
-    if data['id'] == '32941054':
+#def removeLuc(data):
+#    if data['id'] == '32941054':
 
 

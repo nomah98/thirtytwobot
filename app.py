@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 @app.route('/thirtytwobot', methods=['GET'])
 def index():
-	print('JuliaPakey')
+	print('JuliaPakey 2')
 	return 'https://www.instagram.com/p/BJmB0B4gLQO/'
 
 

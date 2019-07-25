@@ -1,9 +1,9 @@
-from flask import Flask, request
+from flask import Flask, request, Response
+
+import urllib, json
 import groupy
 from groupy import Client, api
-import groupy.api.groups
-import groupy.api.messages
-import groupy.api.memberships
+
 
 client = Client.from_token('RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h')
 
@@ -25,7 +25,9 @@ def webhook():
     removeTom()
     return True
 
-@app.route('/https://api.groupme.com/v3/groups/39105660/members/156400982779367387/remove?=RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h', methods=['POST'])
+#@app.route('/https://api.groupme.com/v3/groups/39105660/members/156400982779367387/remove?=RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h', methods=['POST'])
 def removeTom():
     group.memberships.remove('156400982779367387')
+    post_url = 'https://api.groupme.com/v3/groups/39105660/members/156400982779367387/remove?=RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h'
+    response = urllib.urlopen(post_url, {})
     return 'OK'

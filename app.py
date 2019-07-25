@@ -23,7 +23,7 @@ def webhook():
 def groups():
     info = request.get_json()
     print(info)
-    return 'ok'
+    return info
 
 
 #@app.route('/https://api.groupme.com/v3/groups/39105660/members/156400982779367387/remove?=RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h', methods=['POST'])

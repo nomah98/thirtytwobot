@@ -23,7 +23,7 @@ def webhook():
     data = request.get_json()
     #group.memberships.remove('156400982779367387')
     removeTom()
-    return removeTom()
+    return 'ok', 200
 
 #@app.route('/https://api.groupme.com/v3/groups/39105660/members/156400982779367387/remove?=RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h', methods=['POST'])
 def removeTom():

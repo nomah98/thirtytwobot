@@ -14,7 +14,7 @@ def index():
 @app.route('/', methods=['POST'])
 def webhook():
     data = request.get_json()
-    print(data['id'])
+    print(data['members']['id'])
     removeTom()
     return 'ok', 200
 

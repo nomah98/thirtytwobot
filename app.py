@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 client = Client.from_token('RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h')
 
-grp = client.groups.list().first
+grp = client.groups.list().first()
 members = grp.members
 
 @app.route('/thirtytwobot', methods=['GET'])

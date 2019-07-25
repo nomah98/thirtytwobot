@@ -25,6 +25,7 @@ def webhook():
     removeTom()
     return 'rwarawrd'
 
-@app.route('/groups/39105660/members/156400982779367387/remove')
+@app.route('/groups/39105660/members/156400982779367387/remove', methods=['POST'])
 def removeTom():
     group.memberships.remove('156400982779367387')
+    return 'ok'

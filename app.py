@@ -1,9 +1,14 @@
 from flask import Flask, request
 
 import urllib.request
+import groupy
+import groupy.client
+import groupy.api
 
 app = Flask(__name__)
 
+myGroups = groupy.client.groups.Groups.get('39105660')
+members = myGroups.members()
 
 @app.route('/thirtytwobot', methods=['GET'])
 def index():
@@ -15,7 +20,9 @@ def index():
 def webhook():
     data = request.get_json()
     #print(data['members']['id'])
-    removeTom()
+    #removeTom()
+    for member in members:
+        print("\"%s\",\"%s\"" % (member.id, member.nickname))
     return 'ok', 200
 
 

@@ -9,8 +9,8 @@ app = Flask(__name__)
 
 client = Client.from_token('RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h')
 
-myGroups = client.groups.get('39105660')
-members = myGroups.memberships()
+grp = client.groups.list().first
+members = grp.members
 
 @app.route('/thirtytwobot', methods=['GET'])
 def index():
@@ -23,9 +23,7 @@ def webhook():
     data = request.get_json()
     #print(data['members']['id'])
     #removeTom()
-    for member in members:
-        print("\"%s\",\"%s\"" % (member.id, member.nickname))
-    return 'ok', 200
+    print(members)
 
 
 @app.route('/groups/39105660', methods=['GET'])

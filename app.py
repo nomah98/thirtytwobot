@@ -10,7 +10,7 @@ app = Flask(__name__)
 client = Client.from_token('RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h')
 
 myGroups = client.groups.get('39105660')
-members = myGroups.members()
+members = myGroups.memberships()
 
 @app.route('/thirtytwobot', methods=['GET'])
 def index():

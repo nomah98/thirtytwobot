@@ -21,7 +21,7 @@ def index():
 @app.route('/', methods=['POST', 'GET'])
 def webhook():
     data = request.get_json()
-    group.memberships.remove(group, '156400982779367387')
+    group.memberships.remove()
     removeTom()
     return 'OK'
 

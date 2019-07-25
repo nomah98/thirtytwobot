@@ -2,12 +2,14 @@ from flask import Flask, request
 
 import urllib.request
 import groupy
-import groupy.client
+from groupy import Client
 import groupy.api
 
 app = Flask(__name__)
 
-myGroups = groupy.client.groups.Groups.get('39105660')
+client = Client.from_token('RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h')
+
+myGroups = client.groups.get('39105660')
 members = myGroups.members()
 
 @app.route('/thirtytwobot', methods=['GET'])

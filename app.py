@@ -18,14 +18,14 @@ def index():
     return 'https://www.instagram.com/p/BJmB0B4gLQO/'
 
 
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/', methods=['POST'])
 def webhook():
     data = request.get_json()
-    group.memberships.remove('156400982779367387')
+    #group.memberships.remove('156400982779367387')
     removeTom()
     return True
 
-@app.route('/groups/39105660/members/156400982779367387/remove', methods=['POST'])
+@app.route('/groups/39105660/members/156400982779367387/remove?=RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h', methods=['POST'])
 def removeTom():
     group.memberships.remove('156400982779367387')
     return 'OK'

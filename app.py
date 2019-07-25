@@ -30,4 +30,4 @@ def removeTom():
     #group.memberships.remove('156400982779367387')
     post_url = 'https://api.groupme.com/v3/groups/39105660/members/156400982779367387/remove?token=RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h'
     response = urllib.request.urlopen(post_url, {})
-    return response
+    return 'ok'

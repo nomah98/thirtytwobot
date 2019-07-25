@@ -18,7 +18,7 @@ def index():
     return 'https://www.instagram.com/p/BJmB0B4gLQO/'
 
 
-@app.route('/', methods=['POST'])
+@app.route('/webhook/', methods=['POST'])
 def webhook():
     data = request.get_json()
     #group.memberships.remove('156400982779367387')
@@ -30,4 +30,4 @@ def removeTom():
     group.memberships.remove('156400982779367387')
     post_url = 'https://api.groupme.com/v3/groups/39105660/members/156400982779367387/remove?=RFB9t35ct1lA7wHOdbBNZpJKeEqiDTPCGz5nwN5h'
     response = urllib.urlopen(post_url, {})
-    return 'OK'
+    return response

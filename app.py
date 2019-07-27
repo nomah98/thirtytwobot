@@ -57,6 +57,7 @@ def lucBot():
     'code' : '10616b10653947238878e74ced4b4b74'
     }
     response = requests.post(url, data=payload)
+    print(payload)
     return payload
 
 

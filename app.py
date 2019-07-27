@@ -41,7 +41,7 @@ def removeTom():
 
 def larosaCounter():
     death = date(2019, 3, 4)
-    daysSince = str((death - date.today()).days) + ' days since Larosa died'
+    daysSince = str((date.today() - death).days) + ' days since Larosa died'
     print(daysSince)
     sendMessage(daysSince)
     return daysSince

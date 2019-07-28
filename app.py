@@ -63,6 +63,7 @@ def lucBot():
         9: removeTom(),
         10: removeTom(),
     }
+    juliaDict.get(number)
 
 
 

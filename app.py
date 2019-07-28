@@ -48,7 +48,7 @@ def larosaCounter():
     sendMessage(daysSince)
 
 def lucBot():
-    number = random.random() * 10
+    number = random.uniform(1, 10)
     str(number)
     funcDict(number)
 

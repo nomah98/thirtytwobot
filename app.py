@@ -26,7 +26,7 @@ def webhook():
         larosaCounter()
     if data['user_id'] == '36815098':
         removeTom()
-    if data['text'] == 'luc':
+    if data['text'] == '\luc':
         lucBot()
     return 'ok'
 
@@ -49,8 +49,21 @@ def larosaCounter():
 
 def lucBot():
     number = random.uniform(1, 10)
-    str(number)
-    funcDict(number)
+    number
+    if number <= 4:
+        removeTom()
+    elif number == 5:
+        sendMessage('https://i.groupme.com/1080x1350.jpeg.c036fbed65a144b98320174c32eb73bf')
+    elif number == 6:
+        sendMessage('https://i.groupme.com/1080x1241.jpeg.eb9b0971005c4e1f89ea83808d26d278')
+    elif number == 7:
+        sendMessage('https://i.groupme.com/1080x1350.jpeg.ca6be17203af4796a43fa00b42f72c5d')
+    elif number == 8:
+        sendMessage('https://i.groupme.com/1080x1350.jpeg.b6be3125d82442f7b98fe80bf88da226')
+    elif number == 9:
+        sendMessage('https://i.groupme.com/1080x1350.jpeg.3a7249d893f44746aac47ccbe36ebb4c')
+    elif number == 10:
+        sendMessage('https://i.groupme.com/1080x1221.jpeg.64c1720db16f41d782848bc689bc8a80')
 
 def sendMessage(msg):
     url = 'https://api.groupme.com/v3/bots/post'
@@ -61,19 +74,4 @@ def sendMessage(msg):
     response = requests.post(url, data=payload)
     return payload
 
-def funcDict(num):
-    juliaDict = {
-        "0": sendMessage('https://i.groupme.com/1080x1350.jpeg.c036fbed65a144b98320174c32eb73bf'),
-        "1": removeTom(),
-        "2": removeTom(),
-        "3": sendMessage('https://i.groupme.com/1080x1350.jpeg.c036fbed65a144b98320174c32eb73bf'),
-        "4": sendMessage('https://i.groupme.com/1080x1241.jpeg.eb9b0971005c4e1f89ea83808d26d278'),
-        "5": sendMessage('https://i.groupme.com/1080x1350.jpeg.ca6be17203af4796a43fa00b42f72c5d'),
-        "6": sendMessage('https://i.groupme.com/1080x1350.jpeg.b6be3125d82442f7b98fe80bf88da226'),
-        "7": sendMessage('https://i.groupme.com/1080x1350.jpeg.3a7249d893f44746aac47ccbe36ebb4c'),
-        "8": sendMessage('https://i.groupme.com/1080x1221.jpeg.64c1720db16f41d782848bc689bc8a80'),
-        "9": removeTom(),
-        "10": removeTom(),
-    }
-    juliaDict.get(num)
 

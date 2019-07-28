@@ -47,10 +47,7 @@ def larosaCounter():
     daysSince = str((date.today() - death).days) + ' days since Larosa died'
     sendMessage(daysSince)
 
-
-def lucBot():
-    number = random.random() * 10
-    juliaDict = {
+juliaDict = {
         0: removeTom(),
         1: removeTom(),
         2: removeTom(),
@@ -63,9 +60,10 @@ def lucBot():
         9: removeTom(),
         10: removeTom(),
     }
+
+def lucBot():
+    number = random.random() * 10
     juliaDict.get(number)
-
-
 
 def sendMessage(msg):
     url = 'https://api.groupme.com/v3/bots/post'

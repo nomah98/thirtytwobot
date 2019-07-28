@@ -49,7 +49,6 @@ def larosaCounter():
 
 def lucBot():
     number = random.uniform(1, 10)
-    number
     if number <= 4:
         removeTom()
     elif number == 5:

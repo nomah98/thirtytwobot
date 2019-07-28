@@ -48,7 +48,7 @@ def larosaCounter():
     sendMessage(daysSince)
 
 def lucBot():
-    number = random.uniform(1, 10)
+    number = random.randrange(11)
     print(number)
     if number <= 4:
         removeTom()

@@ -3,6 +3,8 @@ from datetime import date
 import requests
 import urllib.request
 import os
+import random
+
 import groupy
 from groupy import Client
 import groupy.api
@@ -10,7 +12,6 @@ import groupy.api
 app = Flask(__name__)
 app.config['apiToken'] = os.environ['apiToken']
 app.config['thirtyTwoBotID'] = os.environ['thirtyTwoBotID']
-
 
 @app.route('/thirtytwobot', methods=['GET'])
 def index():
@@ -48,17 +49,21 @@ def larosaCounter():
 
 
 def lucBot():
-    url = 'https://api.instagram.com/oauth/access_token'
-    payload = {
-    'client_id': 'fd94c8a2662e472aa3b203184e915ec6',
-    'client_secret': '4271ddc1006b48d19e14a4419a8f773a',
-    'grant_type' : 'authorization_code',
-    'redirect_uri' : 'https://glacial-garden-64910.herokuapp.com/',
-    'code' : '10616b10653947238878e74ced4b4b74'
+    number = random.random() * 10
+    juliaDict = {
+        0: removeTom(),
+        1: removeTom(),
+        2: removeTom(),
+        3: sendMessage('https://i.groupme.com/1080x1350.jpeg.c036fbed65a144b98320174c32eb73bf'),
+        4: sendMessage('https://i.groupme.com/1080x1241.jpeg.eb9b0971005c4e1f89ea83808d26d278'),
+        5: sendMessage('https://i.groupme.com/1080x1350.jpeg.ca6be17203af4796a43fa00b42f72c5d'),
+        6: sendMessage('https://i.groupme.com/1080x1350.jpeg.b6be3125d82442f7b98fe80bf88da226'),
+        7: sendMessage('https://i.groupme.com/1080x1350.jpeg.3a7249d893f44746aac47ccbe36ebb4c'),
+        8: sendMessage('https://i.groupme.com/1080x1221.jpeg.64c1720db16f41d782848bc689bc8a80'),
+        9: removeTom(),
+        10: removeTom(),
     }
-    response = requests.post(url, data=payload)
-    print(payload)
-    return payload
+
 
 
 def sendMessage(msg):

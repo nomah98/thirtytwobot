@@ -77,13 +77,14 @@ def sendMessage(msg):
     return payload
 
 def urban(term):
-    url = 'https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=' + term
-    payload = {
-    "X-RapidAPI-Host": "mashape-community-urban-dictionary.p.rapidapi.com",
-    "X-RapidAPI-Key": "b3ca2c3c98msh50b2e8571820722p108617jsn5157c02d70c6"
-  }
-    response = requests.post(url, data=payload)
-    return payload
+    r = requests.get("https://mashape-community-urban-dictionary.p.rapidapi.com/define?term" + term,
+                     headers={
+                         "X-RapidAPI-Host": "mashape-community-urban-dictionary.p.rapidapi.com",
+                         "X-RapidAPI-Key": "b3ca2c3c98msh50b2e8571820722p108617jsn5157c02d70c6"
+                     }
+                     )
+    print(r)
+    return r
 
 
 

@@ -84,7 +84,7 @@ def urban(term):
                      }
                      )
     definition = 'Definition: ' + r.json()['list'][0]['definition']
-    ex = 'Example: ' + r.json()['list'][0]['example']
+    ex = '\n Example: ' + r.json()['list'][0]['example']
     defex = definition + ex
     sendMessage(defex)
 

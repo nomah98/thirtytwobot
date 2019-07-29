@@ -28,6 +28,8 @@ def webhook():
         removeTom()
     if data['text'] == '\luc':
         lucBot()
+    if data['text'][:2] == '\u':
+        urban(data['text'][4:])
     return 'ok'
 
 
@@ -73,5 +75,15 @@ def sendMessage(msg):
     }
     response = requests.post(url, data=payload)
     return payload
+
+def urban(term):
+    url = 'https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=' + term
+    payload = {
+    "X-RapidAPI-Host": "mashape-community-urban-dictionary.p.rapidapi.com",
+    "X-RapidAPI-Key": "b3ca2c3c98msh50b2e8571820722p108617jsn5157c02d70c6"
+  }
+    response = requests.post(url, data=payload)
+    return payload
+
 
 

@@ -28,7 +28,7 @@ def webhook():
         removeTom()
     if data['text'] == '\luc':
         lucBot()
-    if data['text'][:2] == '\u':
+    if data['text'][:2] == '\d':
         urban(data['text'][4:])
     return 'ok'
 

@@ -83,8 +83,8 @@ def urban(term):
                          "X-RapidAPI-Key": "b3ca2c3c98msh50b2e8571820722p108617jsn5157c02d70c6"
                      }
                      )
-    print(r.text)
-    return r.text
+    print(r.text['list'][0]['definition'])
+    return r.text['list'][0]['definition']
 
 
 

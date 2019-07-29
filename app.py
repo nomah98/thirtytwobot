@@ -29,7 +29,7 @@ def webhook():
     if data['text'] == '\luc':
         lucBot()
     if data['text'][:2] == '\d':
-        urban(data['text'][4:])
+        urban(data['text'][3:])
     return 'ok'
 
 
@@ -83,8 +83,10 @@ def urban(term):
                          "X-RapidAPI-Key": "b3ca2c3c98msh50b2e8571820722p108617jsn5157c02d70c6"
                      }
                      )
-    print(r.json()['list'][0]['definition'])
-    return r.json()['list'][0]['definition']
+    definition = 'Definition: ' + r.json()['list'][0]['definition']
+    ex = 'Example: ' + r.json()['list'][0]['example']
+    defex = definition + ex
+    sendMessage(defex)
 
 
 

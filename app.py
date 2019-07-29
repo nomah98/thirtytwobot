@@ -83,10 +83,12 @@ def urban(term):
                          "X-RapidAPI-Key": "b3ca2c3c98msh50b2e8571820722p108617jsn5157c02d70c6"
                      }
                      )
-    definition = 'Definition: ' + r.json()['list'][0]['definition']
+    definition = 'Definition: ' + r.json()['list'][0]['definition'] + '\n'
     ex = '\n Example: ' + r.json()['list'][0]['example']
     defex = definition + ex
-    sendMessage(defex)
+    defexclean = defex.replace("[", "")
+    defexclener = defexclean.replace("]", "")
+    sendMessage(defexclener)
 
 
 

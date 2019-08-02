@@ -6,6 +6,7 @@ import os
 import random
 from flask_sqlalchemy import SQLAlchemy
 import pymysql
+from sqlalchemy import sql
 
 app = Flask(__name__)
 app.config['apiToken'] = os.environ['apiToken']
@@ -107,7 +108,7 @@ def urban(term):
 
 
 def roastBot(message):
-    insultList = Insult.query.filter(str(message[1]))
+    insultList = Insult.query.filter(sql.text(message[1]))
     print(insultList)
     return insultList
 

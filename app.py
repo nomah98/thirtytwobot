@@ -110,6 +110,7 @@ def urban(term):
 def roastBot(message):
     insultList = Insult.query.filter(Insult.name == sql.text(message[1]))
     print(insultList)
+    sendMessage(str(insultList))
     return insultList
 
 

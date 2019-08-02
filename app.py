@@ -108,7 +108,8 @@ def urban(term):
 
 
 def roastBot(message):
-    noah = Insult.query.filter(Insult.name == sql.text("Noah"))
+    db.session.commit()
+    noah = Insult.query.filter(Insult.name == sql.text("Noah")).first()
     print(noah)
     sendMessage(str(noah))
     return noah

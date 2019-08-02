@@ -107,7 +107,7 @@ def urban(term):
 
 
 def roastBot(message):
-    insultList = Insult.query.filter(message[1])
+    insultList = Insult.query.filter(str(message[1]))
     print(insultList)
     return insultList
 

@@ -5,6 +5,8 @@ import urllib.request
 import os
 import random
 from flask_sqlalchemy import SQLAlchemy
+import pymysql
+
 app = Flask(__name__)
 app.config['apiToken'] = os.environ['apiToken']
 app.config['thirtyTwoBotID'] = os.environ['thirtyTwoBotID']

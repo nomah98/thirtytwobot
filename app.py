@@ -5,14 +5,13 @@ import urllib.request
 import os
 import random
 from flask_sqlalchemy import SQLAlchemy
-from tables import Roommate, Insult
-
-
 app = Flask(__name__)
 app.config['apiToken'] = os.environ['apiToken']
 app.config['thirtyTwoBotID'] = os.environ['thirtyTwoBotID']
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
+
+from tables import Roommate, Insult
 
 
 @app.route('/thirtytwobot', methods=['GET'])

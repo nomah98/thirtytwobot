@@ -108,8 +108,7 @@ def urban(term):
 
 
 def roastBot(message):
-    sesh = tables.DBSession.query(Insult)
-    sesh.filter_by(name='Noah')
+    sesh = tables.DBSession.query(Insult).filter_by(name='Noah')
     print(sesh)
     sendMessage(str(sesh))
     return sesh

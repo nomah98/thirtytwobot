@@ -8,7 +8,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config['apiToken'] = os.environ['apiToken']
 app.config['thirtyTwoBotID'] = os.environ['thirtyTwoBotID']
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://admin:trillside@trillside.cr3h2eawf5cv.us-east-2.rds.amazonaws.com/trillside'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 db = SQLAlchemy(app)
 
 from tables import Roommate, Insult

@@ -4,14 +4,16 @@ import requests
 import urllib.request
 import os
 import random
+from flask_sqlalchemy import SQLAlchemy
+from tables import Roommate, Insult
 
-import groupy
-from groupy import Client
-import groupy.api
 
 app = Flask(__name__)
 app.config['apiToken'] = os.environ['apiToken']
 app.config['thirtyTwoBotID'] = os.environ['thirtyTwoBotID']
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+db = SQLAlchemy(app)
+
 
 @app.route('/thirtytwobot', methods=['GET'])
 def index():
@@ -22,14 +24,20 @@ def index():
 @app.route('/', methods=['POST'])
 def webhook():
     data = request.get_json()
-    if data['text'] == '\larosa':
+    sentMessage = data['text'].split(' ')
+    command = sentMessage[0]
+    if command == '\larosa':
         larosaCounter()
     if data['user_id'] == '36815098':
         removeTom()
-    if data['text'] == '\luc':
+    if command == '\luc':
         lucBot()
-    if data['text'][:2] == '\d':
-        urban(data['text'][3:])
+    if command == '\d':
+        urban(sentMessage[2:])
+    if command == '\\roast':
+        roastBot(sentMessage)
+    if command == '\\addroast':
+        addRoast(sentMessage)
     return 'ok'
 
 
@@ -39,15 +47,18 @@ def groups():
     print(info)
     return info
 
+
 def removeTom():
     post_url = 'https://api.groupme.com/v3/groups/39105660/members/459607275/remove?token=' + os.environ['apiToken']
     response = urllib.request.urlopen(post_url, {})
     return response
 
+
 def larosaCounter():
     death = date(2019, 3, 4)
     daysSince = str((date.today() - death).days) + ' days since Larosa died'
     sendMessage(daysSince)
+
 
 def lucBot():
     number = random.randrange(11)
@@ -67,6 +78,7 @@ def lucBot():
     elif number == 10:
         sendMessage('https://i.groupme.com/1080x1221.jpeg.64c1720db16f41d782848bc689bc8a80')
 
+
 def sendMessage(msg):
     url = 'https://api.groupme.com/v3/bots/post'
     payload = {
@@ -75,6 +87,7 @@ def sendMessage(msg):
     }
     response = requests.post(url, data=payload)
     return payload
+
 
 def urban(term):
     r = requests.get("https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=" + term,
@@ -89,6 +102,18 @@ def urban(term):
     defexclean = defex.replace("[", "")
     defexclener = defexclean.replace("]", "")
     sendMessage(defexclener)
+
+
+def roastBot(message):
+    msg = urllib.request.urlopen()
+    insultList = Insult.query.filter(message[1])
+    print(insultList)
+    return insultList
+
+
+def addRoast(message):
+    print(message)
+
 
 
 

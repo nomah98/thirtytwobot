@@ -8,7 +8,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config['apiToken'] = os.environ['apiToken']
 app.config['thirtyTwoBotID'] = os.environ['thirtyTwoBotID']
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://admin:trillside@trillside.cr3h2eawf5cv.us-east-2.rds.amazonaws.com/trillside'
 db = SQLAlchemy(app)
 
 from tables import Roommate, Insult
@@ -104,7 +104,6 @@ def urban(term):
 
 
 def roastBot(message):
-    msg = urllib.request.urlopen()
     insultList = Insult.query.filter(message[1])
     print(insultList)
     return insultList

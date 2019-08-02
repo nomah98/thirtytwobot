@@ -14,7 +14,7 @@ app.config['thirtyTwoBotID'] = os.environ['thirtyTwoBotID']
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-
+import tables
 from tables import Roommate, Insult
 
 
@@ -108,11 +108,11 @@ def urban(term):
 
 
 def roastBot(message):
-    db.session.commit()
-    noah = Insult.query.filter(Insult.name == sql.text("Noah")).first()
-    print(noah)
-    sendMessage(str(noah))
-    return noah
+    sesh = tables.DBSession.query(Insult)
+    sesh.filter_by(name='Noah')
+    print(sesh)
+    sendMessage(str(sesh))
+    return sesh
 
 
 def addRoast(message):

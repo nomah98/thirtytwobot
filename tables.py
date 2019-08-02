@@ -1,5 +1,9 @@
 from app import db
+from sqlalchemy.orm import scoped_session,sessionmaker
+from zope.sqlalchemy import ZopeTransactionExtension
 from sqlalchemy import Table, Column, Integer, ForeignKey
+
+DBSession = scoped_session(sessionmaker(extension=ZopeTransactionExtension()))
 
 
 class Roommate(db.Model):

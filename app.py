@@ -108,7 +108,7 @@ def urban(term):
 
 
 def roastBot(message):
-    noah = Insult.query.filter_by('Noah')
+    noah = Insult.query.filter_by(name=Insult.name)
     insult2 = noah.insult
     print(insult2)
     sendMessage(str(insult2))

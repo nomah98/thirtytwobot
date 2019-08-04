@@ -113,7 +113,7 @@ def roastBot(message):
     resClean = res.replace("<", "")
     resCleaner = resClean.replace(">", "")
     insult = resCleaner[1:]
-    sendMessage(res)
+    sendMessage(insult)
 
 
 def addRoast(message):

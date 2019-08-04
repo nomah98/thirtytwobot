@@ -108,12 +108,14 @@ def urban(term):
 
 
 def roastBot(message):
-    resDirty = Insult.query.filter_by(name='Noah').first()
+    roastName = message.split(' ')
+    roastee = roastName[1]
+    resDirty = Insult.query.filter_by(name=roastee).first()
     res = str(resDirty)
     resClean = res.replace("<", "")
     resCleaner = resClean.replace(">", "")
-    insult = resCleaner[1:]
-    sendMessage(insult)
+    insultMessage = resCleaner.split(' ')
+    sendMessage(insultMessage[1:])
 
 
 def addRoast(message):

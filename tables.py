@@ -15,3 +15,7 @@ class Insult(db.Model):
     __tablename__ = 'insults'
     name = db.Column(db.String(), ForeignKey('roommates.name'))
     phrase = db.Column(db.String(), primary_key=True)
+
+    def __init__(self, name, phrase):
+        self.name = name
+        self.phrase = phrase

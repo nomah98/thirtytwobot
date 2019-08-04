@@ -121,6 +121,7 @@ def addRoast(message):
     roastArr = message[2:]
     roastString = " ".join(roastArr)
     newInsult = Insult(roastee, roastString)
+    sendMessage(newInsult)
     db.session.add(newInsult)
     db.session.flush()
 

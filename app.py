@@ -117,9 +117,13 @@ def roastBot(message):
     sendMessage(insultMessage)
 
 
-
 def addRoast(message):
-    print(message)
+    roastee = str(message[1])
+    roastArr = message[2:]
+    roastString = " ".join(roastArr)
+    newInsult = Insult(name = roastee, phrase = roastString)
+    db.session.add(newInsult)
+
 
 
 

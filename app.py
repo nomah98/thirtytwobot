@@ -109,6 +109,9 @@ def urban(term):
 
 def roastBot(message):
     res = Insult.query.filter_by(name='Noah').first()
+    resClean = res.replace("<", "")
+    resCleaner = resClean.replace(">", "")
+    insult = resCleaner[1:]
     sendMessage(res)
 
 

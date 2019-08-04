@@ -14,7 +14,6 @@ app.config['thirtyTwoBotID'] = os.environ['thirtyTwoBotID']
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-import tables
 from tables import Roommate, Insult
 
 
@@ -123,7 +122,7 @@ def addRoast(message):
     roastString = " ".join(roastArr)
     newInsult = Insult(roastee, roastString)
     db.session.add(newInsult)
-
+    db.session.flush()
 
 
 

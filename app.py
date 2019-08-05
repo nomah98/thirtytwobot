@@ -34,16 +34,16 @@ def webhook():
         larosaCounter()
     if data['user_id'] == '32941054':
         lucBot()
-        if command == '\larosa':
-            larosaCounter()
-        elif command == '\d':
-            urban(sentMessage[2:])
-        elif command == '\\roast':
-            roastBot2(sentMessage)
-        elif command == '\\addroast':
-            addRoast(sentMessage)
-        elif command == '\\addroastee':
-            addRoastee(sentMessage)
+        # if command == '\larosa':
+        #     larosaCounter()
+        # elif command == '\d':
+        #     urban(sentMessage[2:])
+        # elif command == '\\roast':
+        #     roastBot2(sentMessage)
+        # elif command == '\\addroast':
+        #     addRoast(sentMessage)
+        # elif command == '\\addroastee':
+        #     addRoastee(sentMessage)
     if command == '\d':
         urban(sentMessage[2:])
     if command == '\\roast':

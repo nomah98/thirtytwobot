@@ -37,7 +37,7 @@ def webhook():
     if command == '\d':
         urban(sentMessage[2:])
     if command == '\\roast':
-        roastBot(sentMessage)
+        roastBot2(sentMessage)
     if command == '\\addroast':
         addRoast(sentMessage)
     return 'ok'
@@ -114,6 +114,11 @@ def roastBot(message):
     resCleaner = resClean.replace(">", "")
     insultMessage = resCleaner.replace("Insult ", "")
     sendMessage(insultMessage)
+
+def roastBot2(message):
+    roastee = message[1]
+    for ins in db.session.query(Insult).filter_by(name=roastee):
+        sendMessage(ins)
 
 
 def addRoast(message):

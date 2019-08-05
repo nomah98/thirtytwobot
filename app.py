@@ -40,6 +40,8 @@ def webhook():
         roastBot2(sentMessage)
     if command == '\\addroast':
         addRoast(sentMessage)
+    if command == '\\addroastee':
+        addRoastee(sentMessage)
     return 'ok'
 
 
@@ -141,6 +143,14 @@ def addRoast(message):
     roastString = " ".join(roastArr)
     newInsult = Insult(roastee, roastString)
     db.session.add(newInsult)
+    db.session.flush()
+    db.session.commit()
+
+
+def addRoastee(message):
+    roastee = str(message[1])
+    newRoommatee = Roommate(roastee)
+    db.session.add(newRoommatee)
     db.session.flush()
     db.session.commit()
 

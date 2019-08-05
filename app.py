@@ -32,9 +32,17 @@ def webhook():
     if command == '\larosa':
         larosaCounter()
     if data['user_id'] == '32941054':
-        removeLuc()
-    if command == '\luc':
         lucBot()
+        if command == '\larosa':
+            larosaCounter()
+        elif command == '\d':
+            urban(sentMessage[2:])
+        elif command == '\\roast':
+            roastBot2(sentMessage)
+        elif command == '\\addroast':
+            addRoast(sentMessage)
+        elif command == '\\addroastee':
+            addRoastee(sentMessage)
     if command == '\d':
         urban(sentMessage[2:])
     if command == '\\roast':
@@ -68,8 +76,10 @@ def larosaCounter():
 def lucBot():
     number = random.randrange(11)
     print(number)
-    if number <= 3:
+    if number <= 2:
         removeLuc()
+    elif number == 3:
+        sendMessage('https://www.youtube.com/watch?v=ZYv3tHlAJPs')
     elif number == 4:
         sendMessage('https://i.groupme.com/1080x1350.jpeg.b43b872615ba4f3f9cb10a4cb2d4512a')
     elif number == 5:

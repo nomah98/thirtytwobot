@@ -123,6 +123,7 @@ def addRoast(message):
     newInsult = Insult(roastee, roastString)
     db.session.add(newInsult)
     db.session.flush()
+    db.session.commit()
     sendMessage(newInsult)
 
 

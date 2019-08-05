@@ -117,8 +117,8 @@ def roastBot(message):
 
 def roastBot2(message):
     roastee = message[1]
+    insultList = []
     for ins in db.session.query(Insult).filter_by(name=roastee):
-        insultList = []
         insultList.append(ins)
     length = len(insultList)
     sendMessage(length)

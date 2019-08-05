@@ -120,13 +120,17 @@ def roastBot2(message):
     insultList = []
     for ins in db.session.query(Insult).filter_by(name=roastee):
         insultList.append(ins)
-    number = random.randrange(len(insultList))
-    insult = insultList[number]
-    res = str(insult)
-    resClean = res.replace("<", "")
-    resCleaner = resClean.replace(">", "")
-    insultMessage = resCleaner.replace("Insult ", "")
-    sendMessage(insultMessage)
+
+    try:
+        number = random.randrange(len(insultList))
+        insult = insultList[number]
+        res = str(insult)
+        resClean = res.replace("<", "")
+        resCleaner = resClean.replace(">", "")
+        insultMessage = resCleaner.replace("Insult ", "")
+        sendMessage(insultMessage)
+    except ValueError:
+        sendMessage('No insults for this name')
 
 
 def addRoast(message):

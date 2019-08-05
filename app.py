@@ -52,6 +52,7 @@ def webhook():
         addRoast(sentMessage)
     if command == '\\addroastee':
         addRoastee(sentMessage)
+    sendMessage2('@37983222 gay')
     return 'ok'
 
 
@@ -105,7 +106,7 @@ def sendMessage2(msg):
     url = 'https://api.groupme.com/v3/bots/post'
     payload = {
         'bot_id'	: '3cefe43bef5d04bd22d3958597',
-        'text'		: '@37983222 gay'
+        'text'		: msg
     }
     response = requests.post(url, data=payload)
     return payload

@@ -176,7 +176,7 @@ def sendRoomie(ID, name):
     nameLength = len(name) + 1
     payload = {
         'bot_id' : '3cefe43bef5d04bd22d3958597',
-        'text' : 'It is @' + name + 'to blackout tonight',
+        'text' : 'It is @' + name + 's turn to blackout tonight',
         'attachments' : [
             {
                 'type': 'mentions',

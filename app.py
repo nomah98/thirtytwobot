@@ -48,7 +48,6 @@ def webhook():
         #     addRoastee(sentMessage)
     if command == '\d':
         define = " ".join(sentMessage[1:])
-        sendMessage2(define)
         urban(define)
     if command == '\\roast':
         roastBot2(sentMessage)
@@ -56,8 +55,8 @@ def webhook():
         addRoast(sentMessage)
     if command == '\\addroastee':
         addRoastee(sentMessage)
-    sendMessage2("ok @noah")
-    pickRoommate()
+    if command == '\\blackout':
+        pickRoommate()
     return 'ok'
 
 
@@ -105,26 +104,6 @@ def sendMessage(msg):
         'text'		: msg
     }
     response = requests.post(url, data=payload)
-    return payload
-
-def sendMessage2(msg):
-
-    attachmentList = "[{'loci':[[3, 5]], 'type': 'mentions', 'user_id:' ['37983222']}]"
-    url = 'https://api.groupme.com/v3/bots/post?token=' + os.environ['apiToken']
-    payload = {
-        'bot_id' : '3cefe43bef5d04bd22d3958597',
-        'text' : "hi @noah ",
-        'attachments' : [
-            {
-                'type': 'mentions',
-                'loci': [[3, 5]],
-                'user_ids': ['37983222']
-            }
-        ]
-            #[{"loci": [[3, 5]], "type": "mentions", "user_ids": ["37983222"]}],
-
-    }
-    response = requests.post(url, json=payload)
     return payload
 
 
@@ -183,10 +162,32 @@ def addRoastee(message):
 def pickRoommate():
     r = requests.get('https://api.groupme.com/v3/groups/49060077?token=' + os.environ['apiToken'])
     q = r.json()
-    idList = []
+    memberDict = { }
     for i in q['response']['members']:
-        j = i['user_id']
-        idList.append(j)
+        memberDict.update({i['user_id'], i['name']})
+    selectionID = random.choice[memberDict.keys()]
+    nickname = memberDict.get(selectionID)
+    sendRoomie(selectionID, nickname)
+
+
+def sendRoomie(ID, name):
+    url = 'https://api.groupme.com/v3/bots/post?token=' + os.environ['apiToken']
+    nameLength = len(name) + 1
+    payload = {
+        'bot_id' : '3cefe43bef5d04bd22d3958597',
+        'text' : 'It is @' + name + 'to blackout tonight',
+        'attachments' : [
+            {
+                'type': 'mentions',
+                'loci': [[5, nameLength]],
+                'user_ids': [ID]
+            }
+        ]
+            #[{"loci": [[3, 5]], "type": "mentions", "user_ids": ["37983222"]}],
+
+    }
+    response = requests.post(url, json=payload)
+    return payload
 
 
 

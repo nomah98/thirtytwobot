@@ -170,7 +170,7 @@ def pickRoommate():
     j = r.json()
     for ids in j:
         userid = ids['user_id']
-        sendMessage2(ids)
+        sendMessage2(userid)
 
 
 

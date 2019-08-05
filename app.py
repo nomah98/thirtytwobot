@@ -52,7 +52,8 @@ def webhook():
         addRoast(sentMessage)
     if command == '\\addroastee':
         addRoastee(sentMessage)
-    sendMessage2('@37983222 gay')
+   # sendMessage2()
+    pickRoommate()
     return 'ok'
 
 
@@ -163,6 +164,13 @@ def addRoastee(message):
     db.session.add(newRoommatee)
     db.session.flush()
     db.session.commit()
+
+def pickRoommate():
+    r = requests.get('https://api.groupme.com/v3/groups/49060077?token=' + os.environ['apiToken'])
+    j = r.json()
+    for ids in j:
+        userid = ids['user_id']
+        sendMessage2(ids)
 
 
 

@@ -27,6 +27,7 @@ def index():
 
 @app.route('/', methods=['POST'])
 def webhook():
+    number = random.randrange(11)
     data = request.get_json()
     sentMessage = data['text'].split(' ')
     command = sentMessage[0]
@@ -52,7 +53,7 @@ def webhook():
         addRoast(sentMessage)
     if command == '\\addroastee':
         addRoastee(sentMessage)
-    return 'ok'
+    return number
 
 
 @app.route('/groups/49060077', methods=['GET'])
@@ -76,7 +77,6 @@ def larosaCounter():
 
 def lucBot():
     number = random.randrange(11)
-    print(number)
     if number <= 1:
         removeLuc()
     elif number == 2:
@@ -97,6 +97,7 @@ def lucBot():
         sendMessage('https://i.groupme.com/1080x1350.jpeg.3a7249d893f44746aac47ccbe36ebb4c')
     elif number == 10:
         sendMessage('https://i.groupme.com/1080x1221.jpeg.64c1720db16f41d782848bc689bc8a80')
+    return number
 
 
 def sendMessage(msg):

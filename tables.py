@@ -10,6 +10,9 @@ class Roommate(db.Model):
     __tablename__ = 'roommates'
     name = db.Column(db.String(), primary_key=True)
 
+    def __init__(self, name):
+        self.name = name
+
 
 class Insult(db.Model):
     __tablename__ = 'insults'

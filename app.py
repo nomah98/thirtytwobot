@@ -112,7 +112,7 @@ def sendMessage2(msg):
     url = 'https://api.groupme.com/v3/bots/post?token=' + os.environ['apiToken']
     payload = {
         'bot_id': '3cefe43bef5d04bd22d3958597',
-        'text': "hi @noah",
+        'text': "hi @noah ",
         'attachments': [
             {
                 "type": "image",

@@ -52,7 +52,7 @@ def webhook():
         addRoast(sentMessage)
     if command == '\\addroastee':
         addRoastee(sentMessage)
-   # sendMessage2()
+    sendMessage2('ok')
     pickRoommate()
     return 'ok'
 
@@ -104,10 +104,12 @@ def sendMessage(msg):
     return payload
 
 def sendMessage2(msg):
+    attachmentList = "{'loci':[[0, 5]], 'type': 'mentions', 'user_ids:' ['37983222']}"
     url = 'https://api.groupme.com/v3/bots/post'
     payload = {
         'bot_id'	: '3cefe43bef5d04bd22d3958597',
-        'text'		: msg
+        'text'		: msg,
+        'attachments': attachmentList
     }
     response = requests.post(url, data=payload)
     return payload
@@ -168,9 +170,11 @@ def addRoastee(message):
 def pickRoommate():
     r = requests.get('https://api.groupme.com/v3/groups/49060077?token=' + os.environ['apiToken'])
     q = r.json()
+    idList = []
     for i in q['response']['members']:
         j = i['user_id']
-        sendMessage2(j)
+        idList.append(j)
+
 
 
 

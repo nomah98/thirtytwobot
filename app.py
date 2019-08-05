@@ -120,9 +120,9 @@ def roastBot2(message):
     for ins in db.session.query(Insult).filter_by(name=roastee):
         insultList = []
         insultList.append(ins)
-    print('len ' + len)
+    sendMessage('len ' + len)
     number = random.randrange(len(insultList))
-    print("number " + number)
+    sendMessage("number " + number)
     insult = insultList[number]
     sendMessage(insult)
 

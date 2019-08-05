@@ -29,7 +29,6 @@ def index():
 
 @app.route('/', methods=['POST'])
 def webhook():
-    pickRoommate()
     data = request.get_json()
     sentMessage = data['text'].split(' ')
     command = sentMessage[0]
@@ -161,7 +160,7 @@ def addRoastee(message):
     db.session.commit()
 
 def pickRoommate():
-    r = requests.get('https://api.groupme.com/v3/groups/39105660?token=' + os.environ['apiToken'])
+    r = requests.get('https://api.groupme.com/v3/groups/49060077?token=' + os.environ['apiToken'])
     q = r.json()
     memberDict = { }
     for i in q['response']['members']:
@@ -175,7 +174,7 @@ def sendRoomie(ID, name):
     url = 'https://api.groupme.com/v3/bots/post?token=' + os.environ['apiToken']
     nameLength = len(name) + 1
     payload = {
-        'bot_id' : '3cefe43bef5d04bd22d3958597',
+        'bot_id' : os.environ['thirtyTwoBotID'],
         'text' : 'It is @' + name + 's turn to blackout tonight',
         'attachments' : [
             {

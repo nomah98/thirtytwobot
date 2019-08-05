@@ -109,15 +109,7 @@ def sendMessage2(msg):
     payload = {
         'bot_id'	: '3cefe43bef5d04bd22d3958597',
         'text'		: msg,
-        'attachments': [
-    {
-      "type": "mentions",
-      "user_ids": [37983222],
-      "loci": [
-        [3, 5]
-      ]
-    }
-  ]
+        'attachments': [{"type": "mentions", "user_ids": ['37983222'],"loci": [[3, 5]]}]
     }
     response = requests.post(url, data=payload)
     return payload

@@ -7,6 +7,8 @@ import random
 from flask_sqlalchemy import SQLAlchemy
 import pymysql
 from sqlalchemy import sql
+from groupy.api import groups
+from groupy.api.attachments import Mentions
 
 app = Flask(__name__)
 app.config['apiToken'] = os.environ['apiToken']
@@ -45,7 +47,8 @@ def webhook():
         # elif command == '\\addroastee':
         #     addRoastee(sentMessage)
     if command == '\d':
-        urban(sentMessage[2:])
+        define = " ".join(sentMessage[2:])
+        urban(define)
     if command == '\\roast':
         roastBot2(sentMessage)
     if command == '\\addroast':
@@ -104,6 +107,7 @@ def sendMessage(msg):
     return payload
 
 def sendMessage2(msg):
+
     attachmentList = "[{'loci':[[3, 5]], 'type': 'mentions', 'user_ids:' ['37983222']}]"
     url = 'https://api.groupme.com/v3/bots/post'
     payload = {

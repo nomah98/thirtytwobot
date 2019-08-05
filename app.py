@@ -27,7 +27,6 @@ def index():
 
 @app.route('/', methods=['POST'])
 def webhook():
-    number = random.randint(1, 11)
     data = request.get_json()
     sentMessage = data['text'].split(' ')
     command = sentMessage[0]
@@ -53,7 +52,7 @@ def webhook():
         addRoast(sentMessage)
     if command == '\\addroastee':
         addRoastee(sentMessage)
-    sendMessage2(str(number))
+    sendMessage2(str(random.randint(1, 11)))
     return 'ok'
 
 

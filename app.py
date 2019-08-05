@@ -53,7 +53,8 @@ def webhook():
         addRoast(sentMessage)
     if command == '\\addroastee':
         addRoastee(sentMessage)
-    return str(number)
+    sendMessage2(str(number))
+    return 'ok'
 
 
 def removeLuc():
@@ -97,6 +98,15 @@ def sendMessage(msg):
     url = 'https://api.groupme.com/v3/bots/post'
     payload = {
         'bot_id'	: os.environ['thirtyTwoBotID'],
+        'text'		: msg
+    }
+    response = requests.post(url, data=payload)
+    return payload
+
+def sendMessage2(msg):
+    url = 'https://api.groupme.com/v3/bots/post'
+    payload = {
+        'bot_id'	: '3cefe43bef5d04bd22d3958597',
         'text'		: msg
     }
     response = requests.post(url, data=payload)

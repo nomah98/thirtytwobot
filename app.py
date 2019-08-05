@@ -56,13 +56,6 @@ def webhook():
     return str(number)
 
 
-@app.route('/groups/49060077', methods=['GET'])
-def groups():
-    info = request.get_json()
-    print(info)
-    return info
-
-
 def removeLuc():
     post_url = 'https://api.groupme.com/v3/groups/49060077/members/428245754/remove?token=' + os.environ['apiToken']
     response = urllib.request.urlopen(post_url, {})

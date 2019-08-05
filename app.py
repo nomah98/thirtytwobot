@@ -117,20 +117,22 @@ def roastBot(message):
 
 def roastBot2(message):
     roastee = message[1]
-    insultList = []
-    for ins in db.session.query(Insult).filter_by(name=roastee):
-        insultList.append(ins)
-
-    try:
-        number = random.randrange(len(insultList))
-        insult = insultList[number]
-        res = str(insult)
-        resClean = res.replace("<", "")
-        resCleaner = resClean.replace(">", "")
-        insultMessage = resCleaner.replace("Insult ", "")
-        sendMessage(insultMessage)
-    except ValueError:
-        sendMessage('No insults for this name')
+    nameList = []
+    for nm in db.session.query(Roommate).filter_by(name=roastee):
+        nameList.append(nm)
+    if len(nameList) != 1:
+        sendMessage(roastee + ' is not in the database')
+    else:
+        insultList = []
+        for ins in db.session.query(Insult).filter_by(name=roastee):
+            insultList.append(ins)
+            number = random.randrange(len(insultList))
+            insult = insultList[number]
+            res = str(insult)
+            resClean = res.replace("<", "")
+            resCleaner = resClean.replace(">", "")
+            insultMessage = resCleaner.replace("Insult ", "")
+            sendMessage(insultMessage)
 
 
 def addRoast(message):

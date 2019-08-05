@@ -29,6 +29,7 @@ def index():
 
 @app.route('/', methods=['POST'])
 def webhook():
+    pickRoommate()
     data = request.get_json()
     sentMessage = data['text'].split(' ')
     command = sentMessage[0]
@@ -160,7 +161,7 @@ def addRoastee(message):
     db.session.commit()
 
 def pickRoommate():
-    r = requests.get('https://api.groupme.com/v3/groups/49060077?token=' + os.environ['apiToken'])
+    r = requests.get('https://api.groupme.com/v3/groups/39105660?token=' + os.environ['apiToken'])
     q = r.json()
     memberDict = { }
     for i in q['response']['members']:

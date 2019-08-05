@@ -52,7 +52,7 @@ def webhook():
         addRoast(sentMessage)
     if command == '\\addroastee':
         addRoastee(sentMessage)
-    sendMessage2('ok')
+    sendMessage2('ok @noah')
     pickRoommate()
     return 'ok'
 

@@ -27,7 +27,7 @@ def index():
 
 @app.route('/', methods=['POST'])
 def webhook():
-    number = random.randrange(11)
+    number = random.randint(11)
     data = request.get_json()
     sentMessage = data['text'].split(' ')
     command = sentMessage[0]

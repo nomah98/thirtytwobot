@@ -113,7 +113,12 @@ def sendMessage2(msg):
     payload = {
         'bot_id': '3cefe43bef5d04bd22d3958597',
         'text': "hi @noah",
-        'attachments': [{"type": "image", "url": "https://i.groupme.com/1080x1221.jpeg.64c1720db16f41d782848bc689bc8a80"}]
+        'attachments': [
+            {
+                "type": "image",
+                "url": "https://i.groupme.com/1080x1221.jpeg.64c1720db16f41d782848bc689bc8a80"
+            }
+        ]
             #[{"loci": [[3, 5]], "type": "mentions", "user_ids": ["37983222"]}],
 
     }

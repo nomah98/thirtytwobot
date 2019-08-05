@@ -47,7 +47,7 @@ def webhook():
         # elif command == '\\addroastee':
         #     addRoastee(sentMessage)
     if command == '\d':
-        define = " ".join(sentMessage[2:])
+        define = " ".join(sentMessage[1:])
         urban(define)
     if command == '\\roast':
         roastBot2(sentMessage)

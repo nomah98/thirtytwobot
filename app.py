@@ -112,18 +112,19 @@ def sendMessage2(msg):
     attachmentList = "[{'loci':[[3, 5]], 'type': 'mentions', 'user_id:' ['37983222']}]"
     url = 'https://api.groupme.com/v3/bots/post?token=' + os.environ['apiToken']
     payload = {
-        'bot_id': '3cefe43bef5d04bd22d3958597',
-        'text': "hi @noah ",
-        'attachments': [
+        'bot_id' : '3cefe43bef5d04bd22d3958597',
+        'text' : "hi @noah ",
+        'attachments' : [
             {
-                "type": "image",
-                "url": "https://i.groupme.com/1080x1221.jpeg.64c1720db16f41d782848bc689bc8a80"
+                'type': 'mentions',
+                'loci': [[3, 5]],
+                'user_ids': ['37983222']
             }
         ]
             #[{"loci": [[3, 5]], "type": "mentions", "user_ids": ["37983222"]}],
 
     }
-    response = requests.post(url, data=payload)
+    response = requests.post(url, json=payload)
     return payload
 
 

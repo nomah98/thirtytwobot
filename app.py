@@ -109,12 +109,12 @@ def sendMessage(msg):
 def sendMessage2(msg):
 
     attachmentList = "[{'loci':[[3, 5]], 'type': 'mentions', 'user_id:' ['37983222']}]"
-    url = 'https://api.groupme.com/v3/groups/39105660/messages
+    url = 'https://api.groupme.com/v3/bots/post'
     payload = {
         "bot_id": '3cefe43bef5d04bd22d3958597',
         "text"	: "hi @noah",
         "attachments": [{"type": "image",
-                         "url": "https://i.groupme.com/1080x1221.jpeg.64c1720db16f41d782848bc689bc8a80"}],
+                         "url": "https://i.groupme.com/1080x1221.jpeg.64c1720db16f41d782848bc689bc8a80"}]
             #[{"loci": [[3, 5]], "type": "mentions", "user_ids": ["37983222"]}],
 
     }

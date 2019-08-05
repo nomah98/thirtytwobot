@@ -108,7 +108,7 @@ def urban(term):
 
 def roastBot(message):
     roastee = message[1]
-    resDirty = Insult.query.filter_by(name=roastee).first()
+    resDirty = Insult.query.filter_by(name=roastee)
     res = str(resDirty)
     resClean = res.replace("<", "")
     resCleaner = resClean.replace(">", "")
@@ -124,7 +124,7 @@ def addRoast(message):
     db.session.add(newInsult)
     db.session.flush()
     db.session.commit()
-    sendMessage(newInsult)
+
 
 
 

@@ -167,7 +167,8 @@ def addRoastee(message):
 
 def pickRoommate():
     r = requests.get('https://api.groupme.com/v3/groups/49060077?token=' + os.environ['apiToken'])
-    for i in r['response']['members']:
+    q = r.json()
+    for i in q['response']['members']:
         j = i['user_id']
         sendMessage2(j)
 

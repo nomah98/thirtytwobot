@@ -27,14 +27,14 @@ def index():
 
 @app.route('/', methods=['POST'])
 def webhook():
-    number = random.randint(11)
+    number = random.randint(1, 11)
     data = request.get_json()
     sentMessage = data['text'].split(' ')
     command = sentMessage[0]
     if command == '\larosa':
         larosaCounter()
     if data['user_id'] == '32941054':
-        lucBot()
+        #lucBot()
         if command == '\larosa':
             larosaCounter()
         elif command == '\d':

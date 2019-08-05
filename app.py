@@ -105,7 +105,7 @@ def sendMessage2(msg):
     url = 'https://api.groupme.com/v3/bots/post'
     payload = {
         'bot_id'	: '3cefe43bef5d04bd22d3958597',
-        'text'		: msg
+        'text'		: '@37983222 gay'
     }
     response = requests.post(url, data=payload)
     return payload

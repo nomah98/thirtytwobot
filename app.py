@@ -11,6 +11,7 @@ from sqlalchemy import sql
 app = Flask(__name__)
 app.config['apiToken'] = os.environ['apiToken']
 app.config['thirtyTwoBotID'] = os.environ['thirtyTwoBotID']
+
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -30,8 +31,8 @@ def webhook():
     command = sentMessage[0]
     if command == '\larosa':
         larosaCounter()
-    if data['user_id'] == '36815098':
-        removeTom()
+    if data['user_id'] == '32941054':
+        removeLuc()
     if command == '\luc':
         lucBot()
     if command == '\d':
@@ -45,15 +46,15 @@ def webhook():
     return 'ok'
 
 
-@app.route('/groups/39105660', methods=['GET'])
+@app.route('/groups/49060077', methods=['GET'])
 def groups():
     info = request.get_json()
     print(info)
     return info
 
 
-def removeTom():
-    post_url = 'https://api.groupme.com/v3/groups/39105660/members/459607275/remove?token=' + os.environ['apiToken']
+def removeLuc():
+    post_url = 'https://api.groupme.com/v3/groups/49060077/members/428245754/remove?token=' + os.environ['apiToken']
     response = urllib.request.urlopen(post_url, {})
     return response
 
@@ -67,8 +68,10 @@ def larosaCounter():
 def lucBot():
     number = random.randrange(11)
     print(number)
-    if number <= 4:
-        removeTom()
+    if number <= 3:
+        removeLuc()
+    elif number == 4:
+        sendMessage('https://i.groupme.com/1080x1350.jpeg.b43b872615ba4f3f9cb10a4cb2d4512a')
     elif number == 5:
         sendMessage('https://i.groupme.com/1080x1350.jpeg.c036fbed65a144b98320174c32eb73bf')
     elif number == 6:
@@ -107,15 +110,6 @@ def urban(term):
     defexclener = defexclean.replace("]", "")
     sendMessage(defexclener)
 
-
-def roastBot(message):
-    roastee = message[1]
-    resDirty = Insult.query.filter_by(name=roastee).first()
-    res = str(resDirty)
-    resClean = res.replace("<", "")
-    resCleaner = resClean.replace(">", "")
-    insultMessage = resCleaner.replace("Insult ", "")
-    sendMessage(insultMessage)
 
 def roastBot2(message):
     roastee = message[1]

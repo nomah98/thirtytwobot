@@ -76,8 +76,10 @@ def larosaCounter():
 def lucBot():
     number = random.randrange(11)
     print(number)
-    if number <= 2:
+    if number <= 1:
         removeLuc()
+    elif number == 2:
+        sendMessage('https://i.groupme.com/1080x1221.jpeg.64c1720db16f41d782848bc689bc8a80')
     elif number == 3:
         sendMessage('https://www.youtube.com/watch?v=ZYv3tHlAJPs')
     elif number == 4:

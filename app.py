@@ -165,7 +165,7 @@ def pickRoommate():
     memberDict = { }
     for i in q['response']['members']:
         memberDict[str(i['user_id'])] = str(i['name'])
-    selectionID = random.choice[memberDict.keys()]
+    selectionID = random.choice(list(memberDict.keys()))
     nickname = memberDict.get(selectionID)
     sendRoomie(selectionID, nickname)
 

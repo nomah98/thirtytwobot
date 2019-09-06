@@ -73,7 +73,7 @@ def larosaCounter():
 
 
 def lucBot():
-    number = random.randint(1, 11)
+    number = random.randint(1, 100)
     if number == 1:
         removeLuc()
     elif number == 2:

@@ -36,16 +36,6 @@ def webhook():
         larosaCounter()
     if data['user_id'] == '32941054':
         lucBot()
-        # if command == '\larosa':
-        #     larosaCounter()
-        # elif command == '\d':
-        #     urban(sentMessage[2:])
-        # elif command == '\\roast':
-        #     roastBot2(sentMessage)
-        # elif command == '\\addroast':
-        #     addRoast(sentMessage)
-        # elif command == '\\addroastee':
-        #     addRoastee(sentMessage)
     if command == '\d':
         define = " ".join(sentMessage[1:])
         urban(define)
@@ -55,7 +45,7 @@ def webhook():
         addRoast(sentMessage)
     if command == '\\addroastee':
         addRoastee(sentMessage)
-    if command == '\\blackout':
+    if command == '\\trash':
         pickRoommate()
     return 'ok'
 
@@ -68,7 +58,7 @@ def removeLuc():
 
 def larosaCounter():
     death = date(2019, 3, 4)
-    daysSince = str((date.today() - death).days) + ' days since Larosa died'
+    daysSince = str((date.today() - death).days) + ' days since we moved in'
     sendMessage(daysSince)
 
 
@@ -171,7 +161,7 @@ def sendRoomie(ID, name):
     nameLength = len(name) + 1
     payload = {
         'bot_id' : os.environ['thirtyTwoBotID'],
-        'text' : 'It is @' + name + 's turn to blackout tonight',
+        'text' : 'It is @' + name + 's turn to take out the trash',
         'attachments' : [
             {
                 'type': 'mentions',

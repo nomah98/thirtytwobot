@@ -45,7 +45,7 @@ def webhook():
         addRoast(sentMessage)
     if command == '\\addroastee':
         addRoastee(sentMessage)
-    if command == '\\trash':
+    if command == '\\blackout':
         pickRoommate()
     return 'ok'
 
@@ -161,7 +161,7 @@ def sendRoomie(ID, name):
     nameLength = len(name) + 1
     payload = {
         'bot_id' : os.environ['thirtyTwoBotID'],
-        'text' : 'It is @' + name + 's turn to take out the trash',
+        'text' : 'It is @' + name + 's turn to blackout tonight',
         'attachments' : [
             {
                 'type': 'mentions',
